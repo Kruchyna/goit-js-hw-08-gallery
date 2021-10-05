@@ -105,11 +105,13 @@ function onOpenModalClick(event) {
         event.preventDefault();
 
     }
+
     window.addEventListener('keydown', onEscapePress)
     refs.modal.classList.add('is-open')
     const target = event.target;
     onOpenImgModal(event.target.dataset.source, event.target.alt)
 }
+
 
 
 function onOpenImgModal(src, alt) {
@@ -120,6 +122,7 @@ function onEscapePress(event) {
     const ESC_KEY_CODE = 'Escape';
     if (event.code === ESC_KEY_CODE) {
         closeModalClick()
+        
     }
     const LEFT_ARROW = 'ArrowLeft';
     if (event.code === LEFT_ARROW) {
@@ -134,13 +137,23 @@ function onEscapePress(event) {
     }
 }
 
+
+
 function closeModalClick(event) {
     refs.modal.classList.remove('is-open')
     onOpenImgModal('', '')
+
+    window.removeEventListener('keydown', onEscapePress)
+    window.removeEventListener( 'scroll', someFunction)
+   
 }
+
+
+
 function onBackdropClick(event) {
     if (event.target === event.currentTarget) {
         closeModalClick()
+        
     }
 }
 function clickSearchRules(src) {
@@ -181,13 +194,14 @@ function doSomething(scroll_pos) {
 }
 
 
-window.addEventListener('scroll',
-    function (e) {
+window.addEventListener( 'scroll',
+function someFunction (e) {
         scrollPosition = window.scrollX;
         if (!counter) {
             window.requestAnimationFrame(function () {
                 doSomething(scrollPosition);
                 counter = false;
+                
             });
             console.log(!counter)
             counter = true;

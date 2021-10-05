@@ -157,8 +157,6 @@ function closeModalClick(event) {
 
 }
 
-
-
 function onBackdropClick(event) {
     if (event.target === event.currentTarget) {
         closeModalClick()

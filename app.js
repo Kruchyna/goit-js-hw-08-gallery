@@ -137,15 +137,24 @@ function onEscapePress(event) {
     }
 }
 
-
+window.addEventListener( 'scroll',
+function someFunction (e) {
+        scrollPosition = window.scrollX;
+        if (!counter) {
+            window.requestAnimationFrame(function () {
+                doSomething(scrollPosition);
+                counter = false;
+                
+            });
+            console.log(!counter)
+            counter = true;
+        }
+    })
 
 function closeModalClick(event) {
     refs.modal.classList.remove('is-open')
     onOpenImgModal('', '')
 
-    window.removeEventListener('keydown', onEscapePress)
-    window.removeEventListener( 'scroll', someFunction)
-   
 }
 
 
@@ -155,6 +164,8 @@ function onBackdropClick(event) {
         closeModalClick()
         
     }
+    window.removeEventListener('keydown', onEscapePress)
+    window.removeEventListener( 'scroll', someFunction)
 }
 function clickSearchRules(src) {
     const searchForEntry = galleryItems.indexOf(galleryItems.find(el => el.original === src));
@@ -191,10 +202,10 @@ function doSomething(scroll_pos) {
     if (scroll_pos.target === scroll_pos.currentTarget) {
         onClickArrowRight()
     } console.log(scroll_pos)
-}
+};
 
 
-window.addEventListener( 'scroll',
+/*window.addEventListener( 'scroll',
 function someFunction (e) {
         scrollPosition = window.scrollX;
         if (!counter) {
@@ -206,4 +217,4 @@ function someFunction (e) {
             console.log(!counter)
             counter = true;
         }
-    });
+    });*/

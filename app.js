@@ -137,19 +137,7 @@ function onEscapePress(event) {
     }
 }
 
-window.addEventListener( 'scroll',
-function someFunction (e) {
-        scrollPosition = window.scrollX;
-        if (!counter) {
-            window.requestAnimationFrame(function () {
-                doSomething(scrollPosition);
-                counter = false;
-                
-            });
-            console.log(!counter)
-            counter = true;
-        }
-    })
+
 
 function closeModalClick(event) {
     refs.modal.classList.remove('is-open')
@@ -163,7 +151,7 @@ function onBackdropClick(event) {
         
     }
     window.removeEventListener('keydown', onEscapePress)
-    window.removeEventListener( 'scroll', someFunction)
+    /*window.removeEventListener( 'scroll', someFunction)*/
 }
 function clickSearchRules(src) {
     const searchForEntry = galleryItems.indexOf(galleryItems.find(el => el.original === src));
@@ -192,7 +180,7 @@ function onClickArrowLeft(event) {
     console.log(currentImgIndex)
 }
 
-let scrollPosition = 0;
+/*let scrollPosition = 0;
 let counter = false;
 const trottled = _.throttle(doSomething, 3000)
 console.log(trottled)
@@ -203,7 +191,7 @@ function doSomething(scroll_pos) {
 };
 
 
-/*window.addEventListener( 'scroll',
+window.addEventListener( 'scroll',
 function someFunction (e) {
         scrollPosition = window.scrollX;
         if (!counter) {
@@ -216,3 +204,5 @@ function someFunction (e) {
             counter = true;
         }
     });*/
+
+    
